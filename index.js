@@ -40,14 +40,13 @@ const jsConfig = {
     files: ['**/*.js', '**/*.jsx'],
     parser: '@babel/eslint-parser',
     ecmaFeatures: {
-        "jsx": true
+        jsx: true,
     },
     plugins: [...plugins, '@babel'],
     extends: extendsList.filter(
         (pluginName) => !pluginName.includes('typescript'),
     ),
     rules: {
-        ...baseRules,
         // overrides as suggested in the @babel/eslint-plugin: https://www.npmjs.com/package/@babel/eslint-plugin
         'new-cap': 0,
         'no-invalid-this': 0,
@@ -75,10 +74,12 @@ const jestConfig = (extensions = 'ts,tsx') => ({
         'sonarjs/no-duplicate-string': 0,
         'sonarjs/no-identical-functions': 0,
     },
-    extends: [...extendsList, 'plugin:jest/recommended', 'plugin:jest/style'],
+    extends: merge(extendsList, [
+        'plugin:jest/recommended',
+        'plugin:jest/style',
+    ]),
 })
 
-const tsJestConfig = jestConfig()
 const jsJestConfig = merge(jsConfig, jestConfig('js,jsx'))
 jsJestConfig.extends = jsJestConfig.extends.filter(
     (pluginName) => !pluginName.includes('typescript'),
@@ -91,17 +92,14 @@ module.exports = {
     rules: merge(baseRules, tsBaseRules),
     settings: {
         react: {
-            version: "detect"
-        }
+            version: 'detect',
+        },
     },
     overrides: [
         tsJestConfig,
         jsJestConfig,
-        {
-            ...tsJestConfig,
-            plugins,
-            rules: {
-                ...jsJestConfig.rules,
+        merge(jestConfig(), {
+            rules: merge(baseRules, tsBaseRules, {
                 '@typescript-eslint/ban-ts-comment': 0,
                 '@typescript-eslint/no-floating-promises': 0,
                 '@typescript-eslint/no-implied-eval': 0,
@@ -112,7 +110,7 @@ module.exports = {
                 '@typescript-eslint/no-unsafe-return': 0,
                 '@typescript-eslint/no-var-requires': 0,
                 '@typescript-eslint/unbound-method': 0,
-            },
-        },
+            }),
+        }),
     ],
 }
