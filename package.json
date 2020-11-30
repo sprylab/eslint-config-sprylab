@@ -1,0 +1,44 @@
+{
+  "name": "@sprylab/eslint-config-sprylab",
+  "version": "1.0.0",
+  "description": "Eslint Configs used by SpryLab GmbH for typescript / react and react-native based projects",
+  "main": "lib/index.js",
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sprylab/eslint-config-sprylab.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sprylab/eslint-config-sprylab/issues"
+  },
+  "homepage": "https://github.com/sprylab/eslint-config-sprylab#readme",
+  "keywords": [
+    "eslint",
+    "config",
+    "react",
+    "typescript",
+    "react",
+    "native"
+  ],
+  "author": "Sprylab GmbH",
+  "license": "MIT",
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.8.2",
+    "@typescript-eslint/parser": "^4.8.2",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jest": "^24.1.3",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.21.5",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "eslint-plugin-sonarjs": "^0.5.0",
+    "eslint-plugin-sort-imports-es6-autofix": "^0.5.0",
+    "eslint-plugin-testing-library": "^3.10.1"
+  },
+  "peerDependencies": {
+    "eslint": ">=7.14.0"
+  }
+}
