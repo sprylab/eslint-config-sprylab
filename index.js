@@ -39,6 +39,9 @@ const tsBaseRules = {
 const jsConfig = {
     files: ['**/*.js', '**/*.jsx'],
     parser: '@babel/eslint-parser',
+    ecmaFeatures: {
+        "jsx": true
+    },
     plugins: [...plugins, '@babel'],
     extends: extendsList.filter(
         (pluginName) => !pluginName.includes('typescript'),
@@ -86,6 +89,11 @@ module.exports = {
     plugins,
     extends: extendsList,
     rules: merge(baseRules, tsBaseRules),
+    settings: {
+        react: {
+            version: "detect"
+        }
+    },
     overrides: [
         tsJestConfig,
         jsJestConfig,
