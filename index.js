@@ -96,6 +96,7 @@ module.exports = {
         },
     },
     overrides: [
+        jsConfig,
         jsJestConfig,
         merge(jestConfig(), {
             rules: merge(baseRules, tsBaseRules, {
