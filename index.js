@@ -1,4 +1,4 @@
-const merge = require('merge')
+const merge = require('lodash.merge')
 
 const plugins = ['prettier', 'sonarjs', 'sort-imports-es6-autofix']
 const extendsList = [
