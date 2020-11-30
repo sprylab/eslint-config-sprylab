@@ -1,7 +1,7 @@
 {
-  "name": "eslint-config-sprylab",
+  "name": "@sprylab/eslint-config",
   "version": "1.0.0",
-  "description": "Eslint Configs used by SpryLab GmbH for typescript / react and react-native based projects",
+  "description": "Eslint Configs used by Sprylab GmbH for typescript / react and react-native based projects",
   "main": "lib/index.js",
   "files": [
     "lib"
