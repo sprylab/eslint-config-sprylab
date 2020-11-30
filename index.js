@@ -36,6 +36,11 @@ const tsBaseRules = {
         { ignoreIIFE: true, ignoreVoid: true },
     ],
 }
+const tsConfig = {
+    plugins,
+    extends: extendsList,
+    rules: merge(baseRules, tsBaseRules),
+}
 const jsConfig = {
     files: ['**/*.js', '**/*.jsx'],
     parser: '@babel/eslint-parser',
@@ -86,10 +91,7 @@ jsJestConfig.extends = jsJestConfig.extends.filter(
 )
 
 module.exports = {
-    env: { es2021: true },
-    plugins,
-    extends: extendsList,
-    rules: merge(baseRules, tsBaseRules),
+    env: { es2021: true, browser: true },
     settings: {
         react: {
             version: 'detect',
@@ -98,7 +100,8 @@ module.exports = {
     overrides: [
         jsConfig,
         jsJestConfig,
-        merge(jestConfig(), {
+        tsConfig,
+        merge(tsConfig, jestConfig(), {
             rules: merge(baseRules, tsBaseRules, {
                 '@typescript-eslint/ban-ts-comment': 0,
                 '@typescript-eslint/no-floating-promises': 0,
