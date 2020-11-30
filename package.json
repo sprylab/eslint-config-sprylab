@@ -4,7 +4,8 @@
   "description": "Eslint Configs used by Sprylab GmbH for typescript / react and react-native based projects",
   "main": "lib/index.js",
   "files": [
-    "lib"
+    "lib/index.js",
+    "lib/native.js"
   ],
   "repository": {
     "type": "git",
