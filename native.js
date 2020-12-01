@@ -11,7 +11,6 @@ const extendsList = [
     'plugin:import/errors',
     'plugin:import/warnings',
     'plugin:import/typescript',
-    'plugin:testing-library/react',
     'plugin:sonarjs/recommended',
     'plugin:prettier/recommended',
     'prettier/@typescript-eslint',
@@ -21,7 +20,7 @@ const extendsList = [
 const overrides = react.overrides.map((override) => ({
     ...override,
     extends: override.files[0].includes('*.js')
-        ? override.files[0].includes('spec')
+        ? override.files[0].includes('test')
             ? [
                   ...extendsList.filter(
                       (extendEntry) => !extendEntry.includes('typescript'),
@@ -33,7 +32,7 @@ const overrides = react.overrides.map((override) => ({
             : extendsList.filter(
                   (extendEntry) => !extendEntry.includes('typescript'),
               )
-        : override.files[0].includes('spec')
+        : override.files[0].includes('test')
         ? [
               ...extendsList,
               'plugin:testing-library/react',
@@ -53,9 +52,4 @@ module.exports = {
     },
     extends: extendsList,
     overrides,
-    settings: {
-        react: {
-            version: 'detect',
-        },
-    },
 }
