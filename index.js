@@ -52,6 +52,13 @@ const jsBaseRules = {
     '@babel/object-curly-spacing': 2,
     '@babel/semi': 2,
 }
+const tsConfig = {
+    files: ['**/*.ts', '**/*.tsx'],
+    parser: '@typescript-eslint/parser',
+    plugins,
+    extends: extendsList,
+    rules: { ...baseRules, ...tsBaseRules },
+}
 const jsConfig = {
     files: ['**/*.js', '**/*.jsx'],
     parser: '@babel/eslint-parser',
@@ -70,7 +77,7 @@ const jsConfig = {
 }
 
 const jestConfig = (extensions = 'ts,tsx') => ({
-    ...(extensions.includes('js') ? jsConfig : {}),
+    ...(extensions.includes('js') ? jsConfig : tsConfig),
     files: [
         `**/*.{spec,test}.{${extensions}}`,
         `**/{__tests__,__mocks__}/*.{${extensions}}`,
@@ -107,8 +114,5 @@ const jestConfig = (extensions = 'ts,tsx') => ({
 
 module.exports = {
     env: { es2021: true },
-    plugins,
-    extends: extendsList,
-    rules: { ...baseRules, ...tsBaseRules },
-    overrides: [jsConfig, jestConfig(), jestConfig('js,jsx')],
+    overrides: [jsConfig, tsConfig, jestConfig(), jestConfig('js,jsx')],
 }
