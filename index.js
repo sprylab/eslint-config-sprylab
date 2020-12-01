@@ -20,7 +20,6 @@ const baseRules = {
     'import/default': 0,
     'import/no-named-as-default-member': 0,
 }
-
 const tsBaseRules = {
     '@typescript-eslint/no-explicit-any': 0,
     '@typescript-eslint/prefer-optional-chain': 2,
@@ -40,7 +39,7 @@ const jsConfig = {
     ecmaFeatures: {
         jsx: true,
     },
-    plugins: [...plugins, '@babel'],
+    plugins: merge(plugins, [plugins, '@babel']),
     extends: extendsList.filter(
         (pluginName) => !pluginName.includes('typescript'),
     ),
