@@ -33,6 +33,10 @@ const tsBaseRules = {
 const jsConfig = {
     files: ['**/*.js', '**/*.jsx'],
     parser: '@babel/eslint-parser',
+    parserOptions: {
+        sourceType: 'module',
+        allowImportExportEverywhere: true,
+    },
     ecmaFeatures: {
         jsx: true,
     },
