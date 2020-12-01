@@ -10,6 +10,11 @@ const extendsList = [
     'plugin:prettier/recommended',
     'prettier/@typescript-eslint',
 ]
+const testingExtendsList = [
+    'plugin:testing-library/recommended',
+    'plugin:jest/recommended',
+    'plugin:jest/style',
+]
 const baseRules = {
     'no-console': 1,
     'sort-imports-es6-autofix/sort-imports-es6': 2,
@@ -61,10 +66,11 @@ const jsConfig = {
     extends: extendsList.filter(
         (pluginName) => !pluginName.includes('typescript'),
     ),
-    rules: jsBaseRules,
+    rules: { ...baseRules, ...jsBaseRules },
 }
 
 const jestConfig = (extensions = 'ts,tsx') => ({
+    ...(extensions.includes('js') ? jsConfig : {}),
     files: [
         `**/*.{spec,test}.{${extensions}}`,
         `**/{__tests__,__mocks__}/*.{${extensions}}`,
@@ -74,7 +80,7 @@ const jestConfig = (extensions = 'ts,tsx') => ({
         'jest/globals': true,
     },
     rules: extensions.includes('js')
-        ? testBaseRules
+        ? { ...testBaseRules, ...jsBaseRules }
         : {
               ...testBaseRules,
               ...tsBaseRules,
@@ -90,15 +96,11 @@ const jestConfig = (extensions = 'ts,tsx') => ({
               '@typescript-eslint/no-var-requires': 0,
               '@typescript-eslint/unbound-method': 0,
           },
-    extends: [
-        ...extendsList,
-        'plugin:testing-library/recommended',
-        'plugin:jest/recommended',
-        'plugin:jest/style',
-    ].filter(
-        (pluginName) =>
-            !extensions.includes('js') || !pluginName.includes('typescript'),
-    ),
+    extends: extensions.includes('ts')
+        ? [...extendsList, ...testingExtendsList]
+        : [...extendsList, ...testingExtendsList].filter(
+              (pluginName) => !pluginName.includes('typescript'),
+          ),
 })
 
 module.exports = {
@@ -109,6 +111,6 @@ module.exports = {
     overrides: [
         jsConfig,
         jestConfig(),
-        { ...jsConfig, ...jestConfig('js,jsx') },
+        jestConfig('js,jsx'),
     ],
 }
