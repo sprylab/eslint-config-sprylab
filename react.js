@@ -22,12 +22,11 @@ const reactRules = {
 const overrides = base.overrides.map((override) => ({
     ...override,
     extends: override.files[0].includes('*.js')
-        ? override.files[0].includes('spec')
+        ? override.files[0].includes('test')
             ? [
                   ...extendsList.filter(
                       (extendEntry) => !extendEntry.includes('typescript'),
                   ),
-
                   'plugin:testing-library/react',
                   'plugin:jest/recommended',
                   'plugin:jest/style',
@@ -35,7 +34,7 @@ const overrides = base.overrides.map((override) => ({
             : extendsList.filter(
                   (extendEntry) => !extendEntry.includes('typescript'),
               )
-        : override.files[0].includes('spec')
+        : override.files[0].includes('test')
         ? [
               ...extendsList,
               'plugin:testing-library/react',

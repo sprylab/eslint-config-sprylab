@@ -58,8 +58,8 @@ const jsConfig = {
 
 const jestConfig = (extensions = 'ts,tsx') => ({
     files: [
-        `**/*.{spec,test}.${extensions}`,
-        `**/{__tests__,__mocks__}/*.${extensions}`,
+        `**/*.{spec,test}.{${extensions}}`,
+        `**/{__tests__,__mocks__}/*.{${extensions}}`,
     ],
     env: {
         'jest': true,
@@ -67,15 +67,11 @@ const jestConfig = (extensions = 'ts,tsx') => ({
     },
     rules: extensions.includes('js')
         ? {
-              ...baseRules,
-              ...jsBaseRules,
               'jest/no-try-expect': 0,
               'sonarjs/no-duplicate-string': 0,
               'sonarjs/no-identical-functions': 0,
           }
         : {
-              ...baseRules,
-              ...tsBaseRules,
               'jest/no-try-expect': 0,
               'sonarjs/no-duplicate-string': 0,
               'sonarjs/no-identical-functions': 0,

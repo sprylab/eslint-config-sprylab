@@ -26,7 +26,6 @@ const overrides = react.overrides.map((override) => ({
                   ...extendsList.filter(
                       (extendEntry) => !extendEntry.includes('typescript'),
                   ),
-
                   'plugin:testing-library/react',
                   'plugin:jest/recommended',
                   'plugin:jest/style',
