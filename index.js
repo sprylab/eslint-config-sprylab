@@ -5,26 +5,21 @@ const extendsList = [
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:@typescript-eslint/recommended-requiring-type-checking',
-    'plugin:react/recommended',
-    'plugin:react-hooks/recommended',
     'plugin:import/errors',
     'plugin:import/warnings',
     'plugin:import/typescript',
-    'plugin:testing-library/react',
+    'plugin:testing-library',
     'plugin:sonarjs/recommended',
     'plugin:prettier/recommended',
     'prettier/@typescript-eslint',
-    'prettier/react',
 ]
 const baseRules = {
     'no-console': 1,
     'sort-imports-es6-autofix/sort-imports-es6': 2,
-    'react-hooks/exhaustive-deps': 0,
     'import/named': 0,
     'import/namespace': 0,
     'import/default': 0,
     'import/no-named-as-default-member': 0,
-    'react/display-name': 1,
 }
 
 const tsBaseRules = {
@@ -69,8 +64,6 @@ const jestConfig = (extensions = 'ts,tsx') => ({
     },
     rules: {
         'jest/no-try-expect': 0,
-        'react/display-name': 0,
-        'react/prop-types': 0,
         'sonarjs/no-duplicate-string': 0,
         'sonarjs/no-identical-functions': 0,
     },
@@ -90,11 +83,6 @@ module.exports = {
     plugins,
     extends: extendsList,
     rules: merge(baseRules, tsBaseRules),
-    settings: {
-        react: {
-            version: 'detect',
-        },
-    },
     overrides: [
         jsConfig,
         jsJestConfig,

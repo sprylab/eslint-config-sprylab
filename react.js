@@ -1,5 +1,5 @@
 const merge = require('lodash.merge')
-const react = require('./react')
+const base = require('./index')
 
 const extendsList = [
     'eslint:recommended',
@@ -7,8 +7,6 @@ const extendsList = [
     'plugin:@typescript-eslint/recommended-requiring-type-checking',
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
-    'plugin:react-native/all',
-    'plugin:jest/recommended',
     'plugin:import/errors',
     'plugin:import/warnings',
     'plugin:import/typescript',
@@ -18,8 +16,12 @@ const extendsList = [
     'prettier/@typescript-eslint',
     'prettier/react',
 ]
+const reactRules = {
+    'react-hooks/exhaustive-deps': 0,
+    'react/display-name': 1,
+}
 
-const overrides = react.overrides.map((override) =>
+const overrides = base.overrides.map((override) =>
     merge(override, {
         extends: override.files[0].includes('*.js')
             ? override.files[0].includes('spec')
@@ -41,9 +43,14 @@ const overrides = react.overrides.map((override) =>
     }),
 )
 
-module.exports = merge(react, {
-    env: { 'es2021': true, 'react-native/react-native': true },
-    rules: merge(react.rules, { 'react-native/no-color-literals': 0 }),
+module.exports = merge(base, {
+    env: { es2021: true, browser: true },
+    rules: merge(react.rules, reactRules),
     extends: extendsList,
     overrides,
+    settings: {
+        react: {
+            version: 'detect',
+        },
+    },
 })

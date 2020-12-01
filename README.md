@@ -13,7 +13,7 @@ Then add the following the config to your extend array in your eslint config fil
 
 ```js
 extends: [
-    'eslint-config-sprylab', // this is the default browser / react config in the package, read below
+    '@sprylab/eslint-config', // this is the base package, typescript and es2021 + babel
 ],
 parserOptions: {
     project: './tsconfig.json', // should be the path to the projects tsconfig.json
@@ -23,16 +23,55 @@ parserOptions: {
 
 ## Configs
 
-This package includes two distinct configs:
+This package includes three distinct configs:
+- base -> typescript, es2021 and babel
+- react -> base config + browser globals + react + react hooks
+- native -> react config + react native
 
-- react -> base + browser + react + react hooks
-- native -> base + react + react hooks + react native
+By default the base config is exported. So if you do not refer to a subpackage you will be using this:
 
-By default the react config is exported. 
-
-To use the native config simply do:
 ```js
 extends: [
-    'eslint-config-sprylab/native',
+    '@sprylab/eslint-config', 
+],
+```
+
+So to use the react config simply do:
+```js
+extends: [
+    '@sprylab/eslint-config/react',
 ]
 ```
+
+And for the native package do:
+```js
+extends: [
+    '@sprylab/eslint-config/native',
+]
+```
+
+## Plugins included
+
+This config includes and configures the following eslint plugins / parsers:
+
+### Parsers
+For javascript files only:
+- `@babel/eslint-parser`
+- `@babel/eslint-plugin`
+
+For typescript files only:
+
+- `@typescript-eslint/eslint-plugin`
+- `@typescript-eslint/parser`
+
+### Plugins
+- `eslint-config-prettier`
+- `eslint-plugin-import`
+- `eslint-plugin-jest`
+- `eslint-plugin-prettier`
+- `eslint-plugin-react`
+- `eslint-plugin-react-hooks`
+- `eslint-plugin-react-native`
+- `eslint-plugin-sonarjs`
+- `eslint-plugin-sort-imports-es6-autofix`
+- `eslint-plugin-testing-library`
