@@ -40,8 +40,7 @@
     "eslint-plugin-react-native": "^3.10.0",
     "eslint-plugin-sonarjs": "^0.5.0",
     "eslint-plugin-sort-imports-es6-autofix": "^0.5.0",
-    "eslint-plugin-testing-library": "^3.10.1",
-    "lodash.merge": "^4.6.2"
+    "eslint-plugin-testing-library": "^3.10.1"
   },
   "peerDependencies": {
     "eslint": ">=7.14.0",

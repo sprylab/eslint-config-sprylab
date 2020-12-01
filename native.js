@@ -1,4 +1,3 @@
-const merge = require('lodash.merge')
 const react = require('./react')
 
 const extendsList = [
@@ -19,37 +18,36 @@ const extendsList = [
     'prettier/react',
 ]
 
-const overrides = react.overrides.map((override) =>
-    merge(override, {
-        extends: override.files[0].includes('*.js')
-            ? override.files[0].includes('spec')
-                ? merge(
-                      extendsList.filter(
-                          (extendEntry) => !extendEntry.includes('typescript'),
-                      ),
-                      [
-                          'plugin:testing-library/react',
-                          'plugin:jest/recommended',
-                          'plugin:jest/style',
-                      ],
-                  )
-                : extendsList.filter(
+const overrides = react.overrides.map((override) => ({
+    ...override,
+    extends: override.files[0].includes('*.js')
+        ? override.files[0].includes('spec')
+            ? [
+                  ...extendsList.filter(
                       (extendEntry) => !extendEntry.includes('typescript'),
-                  )
-            : override.files[0].includes('spec')
-            ? merge(extendsList, [
+                  ),
+
                   'plugin:testing-library/react',
                   'plugin:jest/recommended',
                   'plugin:jest/style',
-              ])
-            : extendsList,
-    }),
-)
+              ]
+            : extendsList.filter(
+                  (extendEntry) => !extendEntry.includes('typescript'),
+              )
+        : override.files[0].includes('spec')
+        ? [
+              ...extendsList,
+              'plugin:testing-library/react',
+              'plugin:jest/recommended',
+              'plugin:jest/style',
+          ]
+        : extendsList,
+}))
 
 module.exports = {
     ...react,
     env: { 'es2021': true, 'react-native/react-native': true },
-    rules: merge(react.rules, { 'react-native/no-color-literals': 0 }),
+    rules: { ...react.rules, 'react-native/no-color-literals': 0 },
     extends: extendsList,
     overrides,
     settings: {

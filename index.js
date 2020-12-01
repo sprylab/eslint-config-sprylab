@@ -1,5 +1,3 @@
-const merge = require('lodash.merge')
-
 const plugins = ['prettier', 'sonarjs', 'sort-imports-es6-autofix']
 const extendsList = [
     'eslint:recommended',
@@ -39,7 +37,7 @@ const jsConfig = {
     ecmaFeatures: {
         jsx: true,
     },
-    plugins: merge(plugins, ['@babel']),
+    plugins: [...plugins, '@babel'],
     extends: extendsList.filter(
         (pluginName) => !pluginName.includes('typescript'),
     ),
@@ -69,14 +67,15 @@ const jestConfig = (extensions = 'ts,tsx') => ({
         'sonarjs/no-duplicate-string': 0,
         'sonarjs/no-identical-functions': 0,
     },
-    extends: merge(extendsList, [
+    extends: [
+        ...extendsList,
         'plugin:testing-library/recommended',
         'plugin:jest/recommended',
         'plugin:jest/style',
-    ]),
+    ],
 })
 
-const jsJestConfig = merge(jsConfig, jestConfig('js,jsx'))
+const jsJestConfig = {...jsConfig, ...jestConfig('js,jsx')}
 jsJestConfig.extends = jsJestConfig.extends.filter(
     (pluginName) => !pluginName.includes('typescript'),
 )
@@ -85,12 +84,15 @@ module.exports = {
     env: { es2021: true },
     plugins,
     extends: extendsList,
-    rules: merge(baseRules, tsBaseRules),
+    rules: { ...baseRules, ...tsBaseRules },
     overrides: [
         jsConfig,
         jsJestConfig,
-        merge(jestConfig(), {
-            rules: merge(baseRules, tsBaseRules, {
+        {
+            ...jestConfig(),
+            rules: {
+                ...baseRules,
+                ...tsBaseRules,
                 '@typescript-eslint/ban-ts-comment': 0,
                 '@typescript-eslint/no-floating-promises': 0,
                 '@typescript-eslint/no-implied-eval': 0,
@@ -101,7 +103,7 @@ module.exports = {
                 '@typescript-eslint/no-unsafe-return': 0,
                 '@typescript-eslint/no-var-requires': 0,
                 '@typescript-eslint/unbound-method': 0,
-            }),
-        }),
+            },
+        },
     ],
 }
