@@ -39,7 +39,7 @@ const jsConfig = {
     ecmaFeatures: {
         jsx: true,
     },
-    plugins: merge(plugins, [plugins, '@babel']),
+    plugins: merge(plugins, ['@babel']),
     extends: extendsList.filter(
         (pluginName) => !pluginName.includes('typescript'),
     ),
