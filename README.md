@@ -19,8 +19,11 @@ parserOptions: {
     project: './tsconfig.json', // should be the path to the projects tsconfig.json
 }
 ```
-**NOTE**: you must set the parserOptions.project to point to your tsconfig file.
+**NOTES**: 
 
+- For this config to work you need to have a tsconfig.json file at the repo root level, and then you have to set the parserOptions.project to point to your tsconfig file (see the @typescript eslint parser docs). 
+- You also need to have babel installed and a babel config file at the repo root level (see the @babel eslint parser docs)
+- for best experience you should have a prettier config file at the repo root as well, otherwise the eslint-config-prettier will use its builtin defaults. 
 ## Configs
 
 This package includes three distinct configs:
