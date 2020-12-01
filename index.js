@@ -74,6 +74,8 @@ const jestConfig = (extensions = 'ts,tsx') => ({
     files: [
         `**/*.{spec,test}.{${extensions}}`,
         `**/{__tests__,__mocks__}/*.{${extensions}}`,
+        '**/jest.setup.js',
+        '**/jest.setup.ts',
     ],
     env: {
         'jest': true,
@@ -108,9 +110,5 @@ module.exports = {
     plugins,
     extends: extendsList,
     rules: { ...baseRules, ...tsBaseRules },
-    overrides: [
-        jsConfig,
-        jestConfig(),
-        jestConfig('js,jsx'),
-    ],
+    overrides: [jsConfig, jestConfig(), jestConfig('js,jsx')],
 }
