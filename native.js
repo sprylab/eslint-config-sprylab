@@ -46,7 +46,11 @@ const overrides = react.overrides.map((override) => ({
 module.exports = {
     ...react,
     env: { 'es2021': true, 'react-native/react-native': true },
-    rules: { ...react.rules, 'react-native/no-color-literals': 0 },
+    rules: {
+        ...react.rules,
+        'react-native/no-color-literals': 0,
+        'react-native/no-raw-text': 0,
+    },
     extends: extendsList,
     overrides,
     settings: {
