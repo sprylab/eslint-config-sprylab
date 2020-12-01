@@ -27,6 +27,18 @@ const tsBaseRules = {
         { ignoreIIFE: true, ignoreVoid: true },
     ],
 }
+const jsBaseRules = {
+    'new-cap': 0,
+    'no-invalid-this': 0,
+    'no-unused-expressions': 0,
+    'object-curly-spacing': 0,
+    'semi': 0,
+    '@babel/new-cap': 2,
+    '@babel/no-invalid-this': 2,
+    '@babel/no-unused-expressions': 2,
+    '@babel/object-curly-spacing': 2,
+    '@babel/semi': 2,
+}
 const jsConfig = {
     files: ['**/*.js', '**/*.jsx'],
     parser: '@babel/eslint-parser',
@@ -41,19 +53,7 @@ const jsConfig = {
     extends: extendsList.filter(
         (pluginName) => !pluginName.includes('typescript'),
     ),
-    rules: {
-        // overrides as suggested in the @babel/eslint-plugin: https://www.npmjs.com/package/@babel/eslint-plugin
-        'new-cap': 0,
-        'no-invalid-this': 0,
-        'no-unused-expressions': 0,
-        'object-curly-spacing': 0,
-        'semi': 0,
-        '@babel/new-cap': 2,
-        '@babel/no-invalid-this': 2,
-        '@babel/no-unused-expressions': 2,
-        '@babel/object-curly-spacing': 2,
-        '@babel/semi': 2,
-    },
+    rules: jsBaseRules,
 }
 
 const jestConfig = (extensions = 'ts,tsx') => ({
@@ -62,23 +62,36 @@ const jestConfig = (extensions = 'ts,tsx') => ({
         'jest': true,
         'jest/globals': true,
     },
-    rules: {
+    rules: extensions.includes("js") ? {
+        ...baseRules,
+        ...jsBaseRules,
         'jest/no-try-expect': 0,
         'sonarjs/no-duplicate-string': 0,
         'sonarjs/no-identical-functions': 0,
+    } : {
+        ...baseRules,
+        ...tsBaseRules,
+        'jest/no-try-expect': 0,
+        'sonarjs/no-duplicate-string': 0,
+        'sonarjs/no-identical-functions': 0,
+        '@typescript-eslint/ban-ts-comment': 0,
+        '@typescript-eslint/no-floating-promises': 0,
+        '@typescript-eslint/no-implied-eval': 0,
+        '@typescript-eslint/no-misused-promises': 0,
+        '@typescript-eslint/no-unsafe-assignment': 0,
+        '@typescript-eslint/no-unsafe-call': 0,
+        '@typescript-eslint/no-unsafe-member-access': 0,
+        '@typescript-eslint/no-unsafe-return': 0,
+        '@typescript-eslint/no-var-requires': 0,
+        '@typescript-eslint/unbound-method': 0,
     },
     extends: [
         ...extendsList,
         'plugin:testing-library/recommended',
         'plugin:jest/recommended',
         'plugin:jest/style',
-    ],
+    ].filter((pluginName) => !extensions.includes("js") || !pluginName.includes('typescript')),
 })
-
-const jsJestConfig = {...jsConfig, ...jestConfig('js,jsx')}
-jsJestConfig.extends = jsJestConfig.extends.filter(
-    (pluginName) => !pluginName.includes('typescript'),
-)
 
 module.exports = {
     env: { es2021: true },
@@ -87,23 +100,7 @@ module.exports = {
     rules: { ...baseRules, ...tsBaseRules },
     overrides: [
         jsConfig,
-        jsJestConfig,
-        {
-            ...jestConfig(),
-            rules: {
-                ...baseRules,
-                ...tsBaseRules,
-                '@typescript-eslint/ban-ts-comment': 0,
-                '@typescript-eslint/no-floating-promises': 0,
-                '@typescript-eslint/no-implied-eval': 0,
-                '@typescript-eslint/no-misused-promises': 0,
-                '@typescript-eslint/no-unsafe-assignment': 0,
-                '@typescript-eslint/no-unsafe-call': 0,
-                '@typescript-eslint/no-unsafe-member-access': 0,
-                '@typescript-eslint/no-unsafe-return': 0,
-                '@typescript-eslint/no-var-requires': 0,
-                '@typescript-eslint/unbound-method': 0,
-            },
-        },
+        jestConfig(),
+        {...jsConfig, ...jestConfig('js,jsx')},
     ],
 }
