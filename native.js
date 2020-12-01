@@ -46,9 +46,15 @@ const overrides = react.overrides.map((override) =>
     }),
 )
 
-module.exports = merge(react, {
+module.exports = {
+    ...react,
     env: { 'es2021': true, 'react-native/react-native': true },
     rules: merge(react.rules, { 'react-native/no-color-literals': 0 }),
     extends: extendsList,
     overrides,
-})
+    settings: {
+        react: {
+            version: 'detect',
+        },
+    },
+}

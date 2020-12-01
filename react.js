@@ -47,7 +47,8 @@ const overrides = base.overrides.map((override) =>
     }),
 )
 
-module.exports = merge(base, {
+module.exports = {
+    ...base,
     env: { es2021: true, browser: true },
     rules: merge(base.rules, reactRules),
     extends: extendsList,
@@ -57,4 +58,4 @@ module.exports = merge(base, {
             version: 'detect',
         },
     },
-})
+}
