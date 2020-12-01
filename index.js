@@ -13,10 +13,13 @@ const extendsList = [
 const baseRules = {
     'no-console': 1,
     'sort-imports-es6-autofix/sort-imports-es6': 2,
-    'import/named': 0,
-    'import/namespace': 0,
-    'import/default': 0,
-    'import/no-named-as-default-member': 0,
+}
+const testBaseRules = {
+    'no-console': 0,
+    'sort-imports-es6-autofix/sort-imports-es6': 2,
+    'jest/no-try-expect': 0,
+    'sonarjs/no-duplicate-string': 0,
+    'sonarjs/no-identical-functions': 0,
 }
 const tsBaseRules = {
     '@typescript-eslint/no-explicit-any': 0,
@@ -26,6 +29,11 @@ const tsBaseRules = {
         'error',
         { ignoreIIFE: true, ignoreVoid: true },
     ],
+    // recommended configs from the typescript eslint repo - turn off conflicting import rules
+    'import/named': 0,
+    'import/namespace': 0,
+    'import/default': 0,
+    'import/no-named-as-default-member': 0,
 }
 const jsBaseRules = {
     'new-cap': 0,
@@ -66,16 +74,12 @@ const jestConfig = (extensions = 'ts,tsx') => ({
         'jest/globals': true,
     },
     rules: extensions.includes('js')
-        ? {
-              'jest/no-try-expect': 0,
-              'sonarjs/no-duplicate-string': 0,
-              'sonarjs/no-identical-functions': 0,
-          }
+        ? testBaseRules
         : {
-              'jest/no-try-expect': 0,
-              'sonarjs/no-duplicate-string': 0,
-              'sonarjs/no-identical-functions': 0,
+              ...testBaseRules,
+              ...tsBaseRules,
               '@typescript-eslint/ban-ts-comment': 0,
+              '@typescript-eslint/no-explicit-any': 0,
               '@typescript-eslint/no-floating-promises': 0,
               '@typescript-eslint/no-implied-eval': 0,
               '@typescript-eslint/no-misused-promises': 0,
