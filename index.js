@@ -57,40 +57,48 @@ const jsConfig = {
 }
 
 const jestConfig = (extensions = 'ts,tsx') => ({
-    files: [`**/*.{spec,test}.${extensions}`],
+    files: [
+        `**/*.{spec,test}.${extensions}`,
+        `**/{__tests__,__mocks__}/*.${extensions}`,
+    ],
     env: {
         'jest': true,
         'jest/globals': true,
     },
-    rules: extensions.includes("js") ? {
-        ...baseRules,
-        ...jsBaseRules,
-        'jest/no-try-expect': 0,
-        'sonarjs/no-duplicate-string': 0,
-        'sonarjs/no-identical-functions': 0,
-    } : {
-        ...baseRules,
-        ...tsBaseRules,
-        'jest/no-try-expect': 0,
-        'sonarjs/no-duplicate-string': 0,
-        'sonarjs/no-identical-functions': 0,
-        '@typescript-eslint/ban-ts-comment': 0,
-        '@typescript-eslint/no-floating-promises': 0,
-        '@typescript-eslint/no-implied-eval': 0,
-        '@typescript-eslint/no-misused-promises': 0,
-        '@typescript-eslint/no-unsafe-assignment': 0,
-        '@typescript-eslint/no-unsafe-call': 0,
-        '@typescript-eslint/no-unsafe-member-access': 0,
-        '@typescript-eslint/no-unsafe-return': 0,
-        '@typescript-eslint/no-var-requires': 0,
-        '@typescript-eslint/unbound-method': 0,
-    },
+    rules: extensions.includes('js')
+        ? {
+              ...baseRules,
+              ...jsBaseRules,
+              'jest/no-try-expect': 0,
+              'sonarjs/no-duplicate-string': 0,
+              'sonarjs/no-identical-functions': 0,
+          }
+        : {
+              ...baseRules,
+              ...tsBaseRules,
+              'jest/no-try-expect': 0,
+              'sonarjs/no-duplicate-string': 0,
+              'sonarjs/no-identical-functions': 0,
+              '@typescript-eslint/ban-ts-comment': 0,
+              '@typescript-eslint/no-floating-promises': 0,
+              '@typescript-eslint/no-implied-eval': 0,
+              '@typescript-eslint/no-misused-promises': 0,
+              '@typescript-eslint/no-unsafe-assignment': 0,
+              '@typescript-eslint/no-unsafe-call': 0,
+              '@typescript-eslint/no-unsafe-member-access': 0,
+              '@typescript-eslint/no-unsafe-return': 0,
+              '@typescript-eslint/no-var-requires': 0,
+              '@typescript-eslint/unbound-method': 0,
+          },
     extends: [
         ...extendsList,
         'plugin:testing-library/recommended',
         'plugin:jest/recommended',
         'plugin:jest/style',
-    ].filter((pluginName) => !extensions.includes("js") || !pluginName.includes('typescript')),
+    ].filter(
+        (pluginName) =>
+            !extensions.includes('js') || !pluginName.includes('typescript'),
+    ),
 })
 
 module.exports = {
@@ -101,6 +109,6 @@ module.exports = {
     overrides: [
         jsConfig,
         jestConfig(),
-        {...jsConfig, ...jestConfig('js,jsx')},
+        { ...jsConfig, ...jestConfig('js,jsx') },
     ],
 }
