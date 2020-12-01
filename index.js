@@ -81,8 +81,7 @@ const jestConfig = (extensions = 'ts,tsx') => ({
     files: [
         `**/*.{spec,test}.{${extensions}}`,
         `**/{__tests__,__mocks__}/*.{${extensions}}`,
-        '**/jest.setup.js',
-        '**/jest.setup.ts',
+        `**/jest.setup.{${extensions}}`,
     ],
     env: {
         'jest': true,
