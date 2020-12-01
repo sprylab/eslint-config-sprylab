@@ -5,7 +5,7 @@ This is an eslint config used at Sprylab GmbH for typescript based react and rea
 ## Installation
 
 ```bash
-yarn add --dev eslint-config-sprylab
+yarn add --dev @sprylab/eslint-config
 ```
 
 Also make sure to have `prettier` and of course `typescript`  and `eslint` installed as well. 
