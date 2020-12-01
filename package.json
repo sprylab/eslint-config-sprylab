@@ -1,5 +1,5 @@
 {
-  "name": "eslint-config-sprylab",
+  "name": "@sprylab/eslint-config",
   "version": "1.0.0",
   "description": "Eslint Configs used by Sprylab GmbH for typescript / react and react-native based projects",
   "main": "index.js",
@@ -28,8 +28,8 @@
   "dependencies": {
     "@babel/eslint-parser": "^7.12.1",
     "@babel/eslint-plugin": "^7.12.1",
-    "@typescript-eslint/eslint-plugin": "^4.8.2",
-    "@typescript-eslint/parser": "^4.8.2",
+    "@typescript-eslint/eslint-plugin": "^4.9.0",
+    "@typescript-eslint/parser": "^4.9.0",
     "eslint-config-prettier": "^6.15.0",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-jest": "^24.1.3",

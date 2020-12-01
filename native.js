@@ -42,5 +42,5 @@ module.exports = {
     env: { 'es2021': true, 'react-native/react-native': true },
     rules: { ...base.rules, 'react-native/no-color-literals': 0 },
     extends: extendsList,
-    overrides
+    overrides,
 }
