@@ -8,7 +8,6 @@ const extendsList = [
     'plugin:import/errors',
     'plugin:import/warnings',
     'plugin:import/typescript',
-    'plugin:testing-library',
     'plugin:sonarjs/recommended',
     'plugin:prettier/recommended',
     'prettier/@typescript-eslint',
@@ -68,6 +67,7 @@ const jestConfig = (extensions = 'ts,tsx') => ({
         'sonarjs/no-identical-functions': 0,
     },
     extends: merge(extendsList, [
+        'plugin:testing-library/recommended',
         'plugin:jest/recommended',
         'plugin:jest/style',
     ]),

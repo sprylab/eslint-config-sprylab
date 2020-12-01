@@ -27,13 +27,18 @@ const overrides = react.overrides.map((override) =>
                       extendsList.filter(
                           (extendEntry) => !extendEntry.includes('typescript'),
                       ),
-                      ['plugin:jest/recommended', 'plugin:jest/style'],
+                      [
+                          'plugin:testing-library/react',
+                          'plugin:jest/recommended',
+                          'plugin:jest/style',
+                      ],
                   )
                 : extendsList.filter(
                       (extendEntry) => !extendEntry.includes('typescript'),
                   )
             : override.files[0].includes('spec')
             ? merge(extendsList, [
+                  'plugin:testing-library/react',
                   'plugin:jest/recommended',
                   'plugin:jest/style',
               ])
