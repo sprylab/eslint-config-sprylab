@@ -105,8 +105,9 @@ const jestConfig = (extensions) => ({
         'jest/globals': true,
     },
     rules: extensions.includes('js')
-        ? { ...jsBaseRules, ...testBaseRules }
+        ? { ...baseRules, ...jsBaseRules, ...testBaseRules }
         : {
+              ...baseRules,
               ...tsBaseRules,
               ...testBaseRules,
               ...tsTestRules,
