@@ -6,7 +6,6 @@ const extendsList = [
     'plugin:import/errors',
     'plugin:import/warnings',
     'plugin:import/typescript',
-    'plugin:unicorn/recommended',
     'plugin:sonarjs/recommended',
     'plugin:prettier/recommended',
     'prettier/@typescript-eslint',
@@ -73,7 +72,7 @@ const tsConfig = {
     files: ['**/*.ts', '**/*.tsx'],
     parser: '@typescript-eslint/parser',
     plugins,
-    extends: extendsList,
+    extends: [...extendsList, 'plugin:unicorn/recommended'],
     rules: { ...baseRules, ...tsBaseRules },
 }
 const jsConfig = {
@@ -87,9 +86,12 @@ const jsConfig = {
         jsx: true,
     },
     plugins: [...plugins, '@babel'],
-    extends: extendsList.filter(
-        (pluginName) => !pluginName.includes('typescript'),
-    ),
+    extends: [
+        ...extendsList.filter(
+            (pluginName) => !pluginName.includes('typescript'),
+        ),
+        'plugin:unicorn/recommended',
+    ],
     rules: { ...baseRules, ...jsBaseRules },
 }
 
@@ -105,9 +107,8 @@ const jestConfig = (extensions) => ({
         'jest/globals': true,
     },
     rules: extensions.includes('js')
-        ? { ...baseRules, ...jsBaseRules, ...testBaseRules }
+        ? { ...jsBaseRules, ...testBaseRules }
         : {
-              ...baseRules,
               ...tsBaseRules,
               ...testBaseRules,
               ...tsTestRules,

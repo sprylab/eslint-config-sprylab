@@ -93,7 +93,6 @@ plugins shared by all configs / overrides
 -   `eslint-plugin-prettier`
 -   `eslint-plugin-import`
 -   `eslint-plugin-sonarjs`
--   `eslint-plugin-unicorn`
 -   `eslint-plugin-sort-imports-es6-autofix`
 
 #### Testing
@@ -102,6 +101,10 @@ plugins shared across all configs for test files (example.spec.ts) etc.)
 
 -   `eslint-plugin-testing-library`
 -   `eslint-plugin-jest`
+
+### Non-Testing
+
+-   `eslint-plugin-unicorn`
 
 #### React and React Native
 
