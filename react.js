@@ -42,13 +42,14 @@ const overrides = base.overrides.map((override) => ({
               'plugin:jest/style',
           ]
         : extendsList,
+    rules: {
+        ...override.rules,
+        ...reactRules,
+    },
 }))
 
 module.exports = {
-    ...base,
     env: { es2021: true, browser: true },
-    rules: { ...base.rules, ...reactRules },
-    extends: extendsList,
     overrides,
     settings: {
         react: {

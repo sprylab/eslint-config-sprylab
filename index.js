@@ -40,6 +40,19 @@ const tsBaseRules = {
     'import/default': 0,
     'import/no-named-as-default-member': 0,
 }
+const tsTestRules = {
+    '@typescript-eslint/ban-ts-comment': 0,
+    '@typescript-eslint/no-explicit-any': 0,
+    '@typescript-eslint/no-floating-promises': 0,
+    '@typescript-eslint/no-implied-eval': 0,
+    '@typescript-eslint/no-misused-promises': 0,
+    '@typescript-eslint/no-unsafe-assignment': 0,
+    '@typescript-eslint/no-unsafe-call': 0,
+    '@typescript-eslint/no-unsafe-member-access': 0,
+    '@typescript-eslint/no-unsafe-return': 0,
+    '@typescript-eslint/no-var-requires': 0,
+    '@typescript-eslint/unbound-method': 0,
+}
 const jsBaseRules = {
     'new-cap': 0,
     'no-invalid-this': 0,
@@ -60,7 +73,7 @@ const tsConfig = {
     rules: { ...baseRules, ...tsBaseRules },
 }
 const jsConfig = {
-    files: ['**/*.js', '**/*.jsx'],
+    files: ['**/*.js', '**/*.jsx', '*.js', "*.jsx"],
     parser: '@babel/eslint-parser',
     parserOptions: {
         sourceType: 'module',
@@ -76,7 +89,7 @@ const jsConfig = {
     rules: { ...baseRules, ...jsBaseRules },
 }
 
-const jestConfig = (extensions = 'ts,tsx') => ({
+const jestConfig = (extensions) => ({
     ...(extensions.includes('js') ? jsConfig : tsConfig),
     files: [
         `**/*.{spec,test}.{${extensions}}`,
@@ -88,21 +101,11 @@ const jestConfig = (extensions = 'ts,tsx') => ({
         'jest/globals': true,
     },
     rules: extensions.includes('js')
-        ? { ...testBaseRules, ...jsBaseRules }
+        ? { ...jsBaseRules, ...testBaseRules }
         : {
-              ...testBaseRules,
               ...tsBaseRules,
-              '@typescript-eslint/ban-ts-comment': 0,
-              '@typescript-eslint/no-explicit-any': 0,
-              '@typescript-eslint/no-floating-promises': 0,
-              '@typescript-eslint/no-implied-eval': 0,
-              '@typescript-eslint/no-misused-promises': 0,
-              '@typescript-eslint/no-unsafe-assignment': 0,
-              '@typescript-eslint/no-unsafe-call': 0,
-              '@typescript-eslint/no-unsafe-member-access': 0,
-              '@typescript-eslint/no-unsafe-return': 0,
-              '@typescript-eslint/no-var-requires': 0,
-              '@typescript-eslint/unbound-method': 0,
+              ...testBaseRules,
+              ...tsTestRules,
           },
     extends: extensions.includes('ts')
         ? [...extendsList, ...testingExtendsList]
@@ -113,5 +116,5 @@ const jestConfig = (extensions = 'ts,tsx') => ({
 
 module.exports = {
     env: { es2021: true },
-    overrides: [jsConfig, tsConfig, jestConfig(), jestConfig('js,jsx')],
+    overrides: [jsConfig, tsConfig, jestConfig('ts,tsx'), jestConfig('js,jsx')],
 }

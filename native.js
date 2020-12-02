@@ -7,7 +7,6 @@ const extendsList = [
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
     'plugin:react-native/all',
-    'plugin:jest/recommended',
     'plugin:import/errors',
     'plugin:import/warnings',
     'plugin:import/typescript',
@@ -16,6 +15,11 @@ const extendsList = [
     'prettier/@typescript-eslint',
     'prettier/react',
 ]
+
+const reactNativeRules = {
+    'react-native/no-color-literals': 0,
+    'react-native/no-raw-text': 0,
+}
 
 const overrides = react.overrides.map((override) => ({
     ...override,
@@ -40,16 +44,13 @@ const overrides = react.overrides.map((override) => ({
               'plugin:jest/style',
           ]
         : extendsList,
+    rules: {
+        ...override.rules,
+        ...reactNativeRules,
+    },
 }))
 
 module.exports = {
-    ...react,
     env: { 'es2021': true, 'react-native/react-native': true },
-    rules: {
-        ...react.rules,
-        'react-native/no-color-literals': 0,
-        'react-native/no-raw-text': 0,
-    },
-    extends: extendsList,
     overrides,
 }
