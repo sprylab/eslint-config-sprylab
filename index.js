@@ -1,4 +1,4 @@
-const plugins = ['prettier', 'sonarjs', 'sort-imports-es6-autofix']
+const plugins = ['sort-imports-es6-autofix']
 const extendsList = [
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
