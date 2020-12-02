@@ -28,34 +28,37 @@ parserOptions: {
 - For this config to work you need to have a tsconfig.json file at the repo root level, and then you have to set the parserOptions.project to point to your tsconfig file. [see the @typescript-eslint plugin docs](https://www.npmjs.com/package/@typescript-eslint/eslint-plugin). 
 - You also need to have babel installed and a babel config file at the repo root level [see the @babel eslint parser docs](https://www.npmjs.com/package/@babel/eslint-parser)
 - for best experience you should have a prettier config file at the repo root as well, otherwise the eslint-config-prettier will use its builtin defaults. 
+- if you use path aliases, (e.g. use "@" as a path alias to /src etc.), you will probably need to setup a path resolver for the eslint-plugin-import package or turn off some of its rules. There is a resolver for [node](https://www.npmjs.com/package/eslint-import-resolver-node), [typescript](https://www.npmjs.com/package/eslint-import-resolver-typescript), [babel](https://www.npmjs.com/package/eslint-import-resolver-babel-module), webpack etc.  
 ## Configuration
 
 This package includes three distinct configs:
-- base -> typescript, es2021 and babel
-- react -> base config + browser globals + react + react hooks
-- native -> react config + react native
+### base
+ - @typescript, @babel, es2021 globals and testing-library.
 
-By default the base config is exported. So if you do not refer to a subpackage you will be using this:
-
-```js
+ ```js
 extends: [
     '@sprylab/eslint-config', 
 ],
 ```
 
-So to use the react config simply do:
-```js
+### react
+ - base config, browser globals, react, react-hooks and testing-library/react.
+
+ ```js
 extends: [
     '@sprylab/eslint-config/react',
 ]
 ```
 
-And for the native package do:
+### native
+- native -> react config + react native
+
 ```js
 extends: [
     '@sprylab/eslint-config/native',
 ]
 ```
+
 
 ## Plugins included
 
@@ -95,5 +98,32 @@ plugins shared across all configs for test files (example.spec.ts) etc.)
 #### React Native (exclusive)
 - `eslint-plugin-react-native`
 
+## Recommendations
+- add a pre-commit eslint check using [husky](https://www.npmjs.com/package/husky) and [lint-staged](https://github.com/okonet/lint-staged) (also see 
+[precise-commits](https://github.com/nrwl/precise-commits)) for example:
 
+```js
+// in package.json
+	"husky": {
+		"hooks": {
+			"pre-commit": "lint-staged"
+		}
+	},
+	"lint-staged": {
+		"*.{md,json,yml,yaml}": [
+			"prettier --write"
+		],
+		"*.{jsx,jsx,ts,tsx}": [
+			"eslint --fix"
+		]
+	}
+```
+- add package.json eslint scripts:
+
+```js
+    "scripts": {
+		"check:script": "eslint --fix-dry-run './{src,__tests__}/**/*.{js,ts,tsx}'",
+		"lint:script": "eslint --fix './{src,__tests__}/**/*.{js,ts,tsx}'",
+	}
+```
 
