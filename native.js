@@ -10,7 +10,6 @@ const extendsList = [
     'plugin:import/errors',
     'plugin:import/warnings',
     'plugin:import/typescript',
-    'plugin:unicorn/recommended',
     'plugin:sonarjs/recommended',
     'plugin:prettier/recommended',
     'prettier/@typescript-eslint',
@@ -34,9 +33,12 @@ const overrides = react.overrides.map((override) => ({
                   'plugin:jest/recommended',
                   'plugin:jest/style',
               ]
-            : extendsList.filter(
-                  (extendEntry) => !extendEntry.includes('typescript'),
-              )
+            : [
+                  ...extendsList.filter(
+                      (extendEntry) => !extendEntry.includes('typescript'),
+                  ),
+                  'plugin:unicorn/recommended',
+              ]
         : override.files[0].includes('test')
         ? [
               ...extendsList,
@@ -44,7 +46,7 @@ const overrides = react.overrides.map((override) => ({
               'plugin:jest/recommended',
               'plugin:jest/style',
           ]
-        : extendsList,
+        : [...extendsList, 'plugin:unicorn/recommended'],
     rules: {
         ...override.rules,
         ...reactNativeRules,
