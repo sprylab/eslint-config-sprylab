@@ -73,7 +73,7 @@ const tsConfig = {
     rules: { ...baseRules, ...tsBaseRules },
 }
 const jsConfig = {
-    files: ['**/*.js', '**/*.jsx', '*.js', "*.jsx"],
+    files: ['**/*.js', '**/*.jsx', '*.js', '*.jsx'],
     parser: '@babel/eslint-parser',
     parserOptions: {
         sourceType: 'module',

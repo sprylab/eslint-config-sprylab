@@ -1,6 +1,6 @@
 # Eslint Config Sprylab
 
-This is an eslint config used at Sprylab GmbH for typescript based react and react-native based projects.
+This is an eslint config used at Sprylab GmbH for typescript, react and react-native based projects.
 
 ## Installation
 
@@ -12,15 +12,17 @@ Also make sure to have `prettier` and of course `typescript`  and `eslint` insta
 Then add the following the config to your extend array in your eslint config file. 
 
 ```js
-extends: [
-    '@sprylab/eslint-config', // this is the base
-    /* 
-        for react: '@sprylab/eslint-config/react'
-        for native: '@sprylab/eslint-config/native'
-    */
-],
-parserOptions: {
-    project: './tsconfig.json', // should be the path to the projects tsconfig.json
+module.exports = {
+    extends: [
+        '@sprylab/eslint-config', // this is the base
+        /* 
+			for react: '@sprylab/eslint-config/react'
+			for native: '@sprylab/eslint-config/native'
+		*/
+    ],
+    parserOptions: {
+        project: './tsconfig.json', // should be the path to the projects tsconfig.json
+    },
 }
 ```
 **IMPORTANT**: 
@@ -43,7 +45,6 @@ extends: [
 
 ### react
  - base config, browser globals, react, react-hooks and testing-library/react.
-
  ```js
 extends: [
     '@sprylab/eslint-config/react',
@@ -52,7 +53,6 @@ extends: [
 
 ### native
 - native -> react config + react native
-
 ```js
 extends: [
     '@sprylab/eslint-config/native',
@@ -101,7 +101,6 @@ plugins shared across all configs for test files (example.spec.ts) etc.)
 ## Recommendations
 - add a pre-commit eslint check using [husky](https://www.npmjs.com/package/husky) and [lint-staged](https://github.com/okonet/lint-staged) (also see 
 [precise-commits](https://github.com/nrwl/precise-commits)) for example:
-
 ```js
 // in package.json
 	"husky": {
@@ -119,7 +118,6 @@ plugins shared across all configs for test files (example.spec.ts) etc.)
 	}
 ```
 - add package.json eslint scripts:
-
 ```js
     "scripts": {
 		"check:script": "eslint --fix-dry-run './{src,__tests__}/**/*.{js,ts,tsx}'",
