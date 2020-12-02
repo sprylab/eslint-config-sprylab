@@ -63,7 +63,7 @@ const jsBaseRules = {
     '@babel/no-invalid-this': 2,
     '@babel/no-unused-expressions': 2,
     '@babel/object-curly-spacing': 2,
-    '@babel/semi': 2,
+    '@babel/semi': 0,
 }
 const tsConfig = {
     files: ['**/*.ts', '**/*.tsx'],
