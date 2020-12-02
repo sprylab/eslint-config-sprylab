@@ -52,11 +52,7 @@ const overrides = react.overrides.map((override) => ({
 }))
 
 module.exports = {
+    ...react,
     env: { 'es2021': true, 'react-native/react-native': true, 'node': true },
     overrides,
-    settings: {
-        react: {
-            version: 'detect',
-        },
-    },
 }

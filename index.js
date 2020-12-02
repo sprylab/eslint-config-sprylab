@@ -18,13 +18,13 @@ const testingExtendsList = [
 const baseRules = {
     'no-console': 1,
     'sort-imports-es6-autofix/sort-imports-es6': 2,
-    'unicorn/filename-case': 0,
-    'unicorn/no-null': 0,
-    'unicorn/no-nested-ternary': 0,
-    'unicorn/prevent-abbreviations': 0,
-    'unicorn/explicit-length-check': 0,
-    'unicorn/no-abusive-eslint-disable': 0,
-    'unicorn/consistent-function-scoping': 0,
+    'unicorn/filename-case': 'off',
+    'unicorn/no-null': 'off',
+    'unicorn/no-nested-ternary': 'off',
+    'unicorn/prevent-abbreviations': 'off',
+    'unicorn/explicit-length-check': 'off',
+    'unicorn/no-abusive-eslint-disable': 'off',
+    'unicorn/consistent-function-scoping': 'off',
 }
 const testBaseRules = {
     'no-console': 0,
@@ -121,6 +121,10 @@ const jestConfig = (extensions) => ({
 })
 
 module.exports = {
+    parserOptions: {
+        ecmaVersion: 2021,
+        sourceType: 'module',
+    },
     env: { node: true, es2021: true },
     overrides: [jsConfig, tsConfig, jestConfig('ts,tsx'), jestConfig('js,jsx')],
 }

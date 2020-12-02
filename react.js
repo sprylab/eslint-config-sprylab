@@ -49,6 +49,7 @@ const overrides = base.overrides.map((override) => ({
 }))
 
 module.exports = {
+    ...base,
     env: { es2021: true, browser: true, node: true },
     overrides,
     settings: {
