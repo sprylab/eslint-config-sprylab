@@ -117,8 +117,7 @@ plugins shared across all configs for test files (example.spec.ts) etc.)
 
 ## Recommendations
 
--   add a pre-commit eslint check using [husky](https://www.npmjs.com/package/husky) and [lint-staged](https://github.com/okonet/lint-staged) (also see
-    [precise-commits](https://github.com/nrwl/precise-commits)) for example:
+-   add a pre-commit eslint check using [husky](https://www.npmjs.com/package/husky) and [lint-staged](https://github.com/okonet/lint-staged) for example:
 
 ```js
 // in package.json
