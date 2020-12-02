@@ -6,6 +6,7 @@ const extendsList = [
     'plugin:@typescript-eslint/recommended-requiring-type-checking',
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
+    "plugin:jsx-a11y/recommended",
     'plugin:import/errors',
     'plugin:import/warnings',
     'plugin:import/typescript',
@@ -18,6 +19,11 @@ const reactRules = {
     'react-hooks/exhaustive-deps': 0,
     'react/display-name': 1,
 }
+const testPlugins = [
+    'plugin:testing-library/react',
+                  'plugin:jest/recommended',
+                  'plugin:jest/style',
+]
 
 const overrides = base.overrides.map((override) => ({
     ...override,
@@ -27,9 +33,7 @@ const overrides = base.overrides.map((override) => ({
                   ...extendsList.filter(
                       (extendEntry) => !extendEntry.includes('typescript'),
                   ),
-                  'plugin:testing-library/react',
-                  'plugin:jest/recommended',
-                  'plugin:jest/style',
+                  ...testPlugins
               ]
             : extendsList.filter(
                   (extendEntry) => !extendEntry.includes('typescript'),
@@ -37,9 +41,7 @@ const overrides = base.overrides.map((override) => ({
         : override.files[0].includes('test')
         ? [
               ...extendsList,
-              'plugin:testing-library/react',
-              'plugin:jest/recommended',
-              'plugin:jest/style',
+              ...testPlugins
           ]
         : extendsList,
     rules: {
