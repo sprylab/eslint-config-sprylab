@@ -93,6 +93,7 @@ plugins shared by all configs / overrides
 -   `eslint-plugin-prettier`
 -   `eslint-plugin-import`
 -   `eslint-plugin-sonarjs`
+-   `eslint-plugin-unicorn`
 -   `eslint-plugin-sort-imports-es6-autofix`
 
 #### Testing

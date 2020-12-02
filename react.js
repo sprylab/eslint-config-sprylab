@@ -6,10 +6,11 @@ const extendsList = [
     'plugin:@typescript-eslint/recommended-requiring-type-checking',
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
-    "plugin:jsx-a11y/recommended",
+    'plugin:jsx-a11y/recommended',
     'plugin:import/errors',
     'plugin:import/warnings',
     'plugin:import/typescript',
+    'plugin:unicorn/recommended',
     'plugin:sonarjs/recommended',
     'plugin:prettier/recommended',
     'prettier/@typescript-eslint',
@@ -21,8 +22,8 @@ const reactRules = {
 }
 const testPlugins = [
     'plugin:testing-library/react',
-                  'plugin:jest/recommended',
-                  'plugin:jest/style',
+    'plugin:jest/recommended',
+    'plugin:jest/style',
 ]
 
 const overrides = base.overrides.map((override) => ({
@@ -33,16 +34,13 @@ const overrides = base.overrides.map((override) => ({
                   ...extendsList.filter(
                       (extendEntry) => !extendEntry.includes('typescript'),
                   ),
-                  ...testPlugins
+                  ...testPlugins,
               ]
             : extendsList.filter(
                   (extendEntry) => !extendEntry.includes('typescript'),
               )
         : override.files[0].includes('test')
-        ? [
-              ...extendsList,
-              ...testPlugins
-          ]
+        ? [...extendsList, ...testPlugins]
         : extendsList,
     rules: {
         ...override.rules,
@@ -51,7 +49,7 @@ const overrides = base.overrides.map((override) => ({
 }))
 
 module.exports = {
-    env: { es2021: true, browser: true },
+    env: { es2021: true, browser: true, node: true },
     overrides,
     settings: {
         react: {

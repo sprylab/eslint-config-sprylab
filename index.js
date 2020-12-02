@@ -6,6 +6,7 @@ const extendsList = [
     'plugin:import/errors',
     'plugin:import/warnings',
     'plugin:import/typescript',
+    'plugin:unicorn/recommended',
     'plugin:sonarjs/recommended',
     'plugin:prettier/recommended',
     'prettier/@typescript-eslint',
@@ -18,6 +19,13 @@ const testingExtendsList = [
 const baseRules = {
     'no-console': 1,
     'sort-imports-es6-autofix/sort-imports-es6': 2,
+    'unicorn/filename-case': 0,
+    'unicorn/no-null': 0,
+    'unicorn/no-nested-ternary': 0,
+    'unicorn/prevent-abbreviations': 0,
+    'unicorn/explicit-length-check': 0,
+    'unicorn/no-abusive-eslint-disable': 0,
+    'unicorn/consistent-function-scoping': 0,
 }
 const testBaseRules = {
     'no-console': 0,
@@ -57,13 +65,9 @@ const jsBaseRules = {
     'new-cap': 0,
     'no-invalid-this': 0,
     'no-unused-expressions': 0,
-    'object-curly-spacing': 0,
-    'semi': 0,
     '@babel/new-cap': 2,
     '@babel/no-invalid-this': 2,
     '@babel/no-unused-expressions': 2,
-    '@babel/object-curly-spacing': 2,
-    '@babel/semi': 0,
 }
 const tsConfig = {
     files: ['**/*.ts', '**/*.tsx'],
@@ -115,6 +119,6 @@ const jestConfig = (extensions) => ({
 })
 
 module.exports = {
-    env: { es2021: true },
+    env: { node: true, es2021: true },
     overrides: [jsConfig, tsConfig, jestConfig('ts,tsx'), jestConfig('js,jsx')],
 }

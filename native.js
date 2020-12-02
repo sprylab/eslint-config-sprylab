@@ -10,6 +10,7 @@ const extendsList = [
     'plugin:import/errors',
     'plugin:import/warnings',
     'plugin:import/typescript',
+    'plugin:unicorn/recommended',
     'plugin:sonarjs/recommended',
     'plugin:prettier/recommended',
     'prettier/@typescript-eslint',
@@ -51,6 +52,6 @@ const overrides = react.overrides.map((override) => ({
 }))
 
 module.exports = {
-    env: { 'es2021': true, 'react-native/react-native': true },
+    env: { 'es2021': true, 'react-native/react-native': true, 'node': true },
     overrides,
 }
