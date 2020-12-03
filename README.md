@@ -139,7 +139,7 @@ plugins shared across all configs for test files (example.spec.ts) etc.)
     "*.{md,json,yml,yaml}": [
         "prettier --write"
     ],
-    "*.{jsx,jsx,ts,tsx}": [
+    "*.{js,jsx,ts,tsx}": [
         "eslint --fix"
     ]
 }
