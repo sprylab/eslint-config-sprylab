@@ -108,7 +108,7 @@ plugins shared across all configs for test files (example.spec.ts) etc.)
 - `eslint-plugin-testing-library`
 - `eslint-plugin-jest`
 
-### Non-Testing
+#### Non-Testing
 
 - `eslint-plugin-unicorn`
 
