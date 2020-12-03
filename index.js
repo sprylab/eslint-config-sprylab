@@ -81,6 +81,7 @@ const jsConfig = {
     parserOptions: {
         sourceType: 'module',
         allowImportExportEverywhere: true,
+        requireConfigFile: false,
     },
     ecmaFeatures: {
         jsx: true,
