@@ -37,7 +37,7 @@ module.exports = {
 - For this config to work you need to have a tsconfig.json file at the repo root level, and then you have to set the parserOptions.project to point to your tsconfig file. [see the @typescript-eslint plugin docs](https://www.npmjs.com/package/@typescript-eslint/eslint-plugin).
 - You also need to have babel installed and a babel config file at the repo root level [see the @babel eslint parser docs](https://www.npmjs.com/package/@babel/eslint-parser)
 - for best experience you should have a prettier config file at the repo root as well, otherwise the eslint-config-prettier will use its builtin defaults.
-- if you use path aliases, (e.g. use "@" as a path alias to /src etc.), you will probably need to setup a path resolver for the eslint-plugin-import package or turn off some of its rules. There is a resolver for [node](https://www.npmjs.com/package/eslint-import-resolver-node), [typescript](https://www.npmjs.com/package/eslint-import-resolver-typescript), [babel](https://www.npmjs.com/package/eslint-import-resolver-babel-module), webpack etc.
+- if you use path aliases, (e.g. use "@" as a path alias to /src etc.), you will probably need to setup a path resolver for the eslint-plugin-import package or turn off some of its rules. There is a resolver for [node](https://www.npmjs.com/package/eslint-import-resolver-node), [typescript](https://www.npmjs.com/package/eslint-import-resolver-typescript), [babel](https://www.npmjs.com/package/eslint-import-resolver-babel-module), [webpack](https://www.npmjs.com/package/eslint-import-resolver-webpack) etc.
 
 ## Configuration
 
