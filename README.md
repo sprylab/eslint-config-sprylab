@@ -45,7 +45,7 @@ This package includes three distinct configs:
 
 ### base
 
-- @typescript, @babel, es2021 globals and testing-library.
+- @typescript, @babel, es2021, node globals and testing-library.
 
 ```js
 extends: [
