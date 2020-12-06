@@ -22,6 +22,15 @@
         "tool",
         "maintenance"
       ]
+    },
+    {
+      "login": "schwarzkopfb",
+      "name": "Schwarzkopf Balázs",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/1900242?v=4",
+      "profile": "https://github.com/schwarzkopfb",
+      "contributions": [
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7
