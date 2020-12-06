@@ -1,0 +1,28 @@
+{
+  "projectName": "@sprylab/eslint-config",
+  "projectOwner": "Sprylab GmbH",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "commitConvention": "none",
+  "contributors": [
+    {
+      "login": "Goldziher",
+      "name": "Na'aman Hirschfeld",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/30733348?v=4",
+      "profile": "https://github.com/Goldziher",
+      "contributions": [
+        "code",
+        "doc",
+        "design",
+        "tool",
+        "maintenance"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7
+}

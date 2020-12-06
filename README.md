@@ -153,3 +153,23 @@ plugins shared across all configs for test files (example.spec.ts) etc.)
     "lint:script": "eslint --fix './{src,__tests__}/**/*.{js,ts,tsx}'",
 }
 ```
+
+## Contributors ✨
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/Goldziher"><img src="https://avatars1.githubusercontent.com/u/30733348?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Na'aman Hirschfeld</b></sub></a><br /><a href="https://github.com/Sprylab GmbH/@sprylab/eslint-config/commits?author=Goldziher" title="Code">💻</a> <a href="https://github.com/Sprylab GmbH/@sprylab/eslint-config/commits?author=Goldziher" title="Documentation">📖</a> <a href="#design-Goldziher" title="Design">🎨</a> <a href="#tool-Goldziher" title="Tools">🔧</a> <a href="#maintenance-Goldziher" title="Maintenance">🚧</a></td>
+  </tr>
+</table>
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome! See our [contribution guidelines](CONTRIBUTING.MD)!
