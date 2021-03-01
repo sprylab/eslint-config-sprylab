@@ -12,8 +12,7 @@ const extendsList = [
     'plugin:import/typescript',
     'plugin:sonarjs/recommended',
     'plugin:prettier/recommended',
-    'prettier/@typescript-eslint',
-    'prettier/react',
+    'prettier',
 ]
 
 const reactNativeRules = {

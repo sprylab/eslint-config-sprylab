@@ -8,7 +8,7 @@ const extendsList = [
     'plugin:import/typescript',
     'plugin:sonarjs/recommended',
     'plugin:prettier/recommended',
-    'prettier/@typescript-eslint',
+    'prettier',
 ]
 const testingExtendsList = [
     'plugin:testing-library/recommended',
@@ -25,6 +25,11 @@ const baseRules = {
     'unicorn/explicit-length-check': 'off',
     'unicorn/no-abusive-eslint-disable': 'off',
     'unicorn/consistent-function-scoping': 'off',
+    'unicorn/no-useless-undefined': 'off',
+    'unicorn/no-array-callback-reference': 'off',
+    'unicorn/no-array-reduce': 'off',
+    'unicorn/no-array-for-each': 'off',
+    'unicorn/consistent-destructuring': 'off',
 }
 const testBaseRules = {
     'no-console': 0,
