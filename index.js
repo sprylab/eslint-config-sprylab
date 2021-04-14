@@ -10,11 +10,7 @@ const extendsList = [
     'plugin:prettier/recommended',
     'prettier',
 ]
-const testingExtendsList = [
-    'plugin:testing-library/recommended',
-    'plugin:jest/recommended',
-    'plugin:jest/style',
-]
+const testingExtendsList = ['plugin:jest/recommended', 'plugin:jest/style']
 const baseRules = {
     'no-console': 1,
     'sort-imports-es6-autofix/sort-imports-es6': 2,
