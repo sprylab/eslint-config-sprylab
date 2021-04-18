@@ -14,18 +14,6 @@ const testingExtendsList = ['plugin:jest/recommended', 'plugin:jest/style']
 const baseRules = {
     'no-console': 1,
     'sort-imports-es6-autofix/sort-imports-es6': 2,
-    'unicorn/filename-case': 'off',
-    'unicorn/no-null': 'off',
-    'unicorn/no-nested-ternary': 'off',
-    'unicorn/prevent-abbreviations': 'off',
-    'unicorn/explicit-length-check': 'off',
-    'unicorn/no-abusive-eslint-disable': 'off',
-    'unicorn/consistent-function-scoping': 'off',
-    'unicorn/no-useless-undefined': 'off',
-    'unicorn/no-array-callback-reference': 'off',
-    'unicorn/no-array-reduce': 'off',
-    'unicorn/no-array-for-each': 'off',
-    'unicorn/consistent-destructuring': 'off',
 }
 const testBaseRules = {
     'no-console': 0,
@@ -73,7 +61,7 @@ const tsConfig = {
     files: ['**/*.ts', '**/*.tsx'],
     parser: '@typescript-eslint/parser',
     plugins,
-    extends: [...extendsList, 'plugin:unicorn/recommended'],
+    extends: extendsList,
     rules: { ...baseRules, ...tsBaseRules },
 }
 const jsConfig = {
@@ -88,12 +76,9 @@ const jsConfig = {
         jsx: true,
     },
     plugins: [...plugins, '@babel'],
-    extends: [
-        ...extendsList.filter(
-            (pluginName) => !pluginName.includes('typescript'),
-        ),
-        'plugin:unicorn/recommended',
-    ],
+    extends: extendsList.filter(
+        (pluginName) => !pluginName.includes('typescript'),
+    ),
     rules: { ...baseRules, ...jsBaseRules },
 }
 

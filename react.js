@@ -34,15 +34,12 @@ const overrides = base.overrides.map((override) => ({
                   ),
                   ...testPlugins,
               ]
-            : [
-                  ...extendsList.filter(
-                      (extendEntry) => !extendEntry.includes('typescript'),
-                  ),
-                  'plugin:unicorn/recommended',
-              ]
+            : extendsList.filter(
+                  (extendEntry) => !extendEntry.includes('typescript'),
+              )
         : override.files[0].includes('test')
         ? [...extendsList, ...testPlugins]
-        : [...extendsList, 'plugin:unicorn/recommended'],
+        : extendsList,
     rules: {
         ...override.rules,
         ...reactRules,

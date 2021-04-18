@@ -32,12 +32,9 @@ const overrides = react.overrides.map((override) => ({
                   'plugin:jest/recommended',
                   'plugin:jest/style',
               ]
-            : [
-                  ...extendsList.filter(
-                      (extendEntry) => !extendEntry.includes('typescript'),
-                  ),
-                  'plugin:unicorn/recommended',
-              ]
+            : extendsList.filter(
+                  (extendEntry) => !extendEntry.includes('typescript'),
+              )
         : override.files[0].includes('test')
         ? [
               ...extendsList,
@@ -45,7 +42,7 @@ const overrides = react.overrides.map((override) => ({
               'plugin:jest/recommended',
               'plugin:jest/style',
           ]
-        : [...extendsList, 'plugin:unicorn/recommended'],
+        : extendsList,
     rules: {
         ...override.rules,
         ...reactNativeRules,
