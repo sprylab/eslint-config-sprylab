@@ -18,10 +18,10 @@
     eslint-visitor-keys "^1.3.0"
     semver "^6.3.0"
 
-"@babel/eslint-plugin@^7.13.15":
-  version "7.13.15"
-  resolved "https://registry.yarnpkg.com/@babel/eslint-plugin/-/eslint-plugin-7.13.15.tgz#31eced09690b23de6d7287b8da6dfec09dce9942"
-  integrity sha512-ZrfhoThsrkcws78a7IJdfUBU5mXIfLiXxjxfIUSWtqYh/F9k1ZCiuibfNJuD5mDsyG3tqPrfE83Qlj/Gfzyi7w==
+"@babel/eslint-plugin@^7.13.16":
+  version "7.13.16"
+  resolved "https://registry.yarnpkg.com/@babel/eslint-plugin/-/eslint-plugin-7.13.16.tgz#d6937636c567b41d6ca46d291c7b2d101e6ccaf3"
+  integrity sha512-RNL0dLHBvjXW857JwzToTHxtbOZfGcvdSegcgXC1c1PqfE+o/QN8MugkgKj2vXFxCcMByfxJrmpCbLzVBVlgIA==
   dependencies:
     eslint-rule-composer "^0.3.0"
 
@@ -736,10 +736,10 @@ escape-string-regexp@^1.0.5:
   resolved "https://registry.yarnpkg.com/escape-string-regexp/-/escape-string-regexp-1.0.5.tgz#1b61c0562190a8dff6ae3bb2cf0200ca130b86d4"
   integrity sha1-G2HAViGQqN/2rjuyzwIAyhMLhtQ=
 
-eslint-config-prettier@^8.2.0:
-  version "8.2.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-8.2.0.tgz#78de77d63bca8e9e59dae75a614b5299925bb7b3"
-  integrity sha512-dWV9EVeSo2qodOPi1iBYU/x6F6diHv8uujxbxr77xExs3zTAlNXvVZKiyLsQGNz7yPV2K49JY5WjPzNIuDc2Bw==
+eslint-config-prettier@^8.3.0:
+  version "8.3.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-8.3.0.tgz#f7471b20b6fe8a9a9254cc684454202886a2dd7a"
+  integrity sha512-BgZuLUSeKzvlL/VUjx/Yb787VQ26RU3gGjA3iiFvdsp/2bMfVIWUVP7tjxtjS0e+HP409cPlPvNkQloz8C91ew==
 
 eslint-import-resolver-node@^0.3.4:
   version "0.3.4"
@@ -776,10 +776,10 @@ eslint-plugin-import@^2.22.1:
     resolve "^1.17.0"
     tsconfig-paths "^3.9.0"
 
-eslint-plugin-jest@^24.3.5:
-  version "24.3.5"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-jest/-/eslint-plugin-jest-24.3.5.tgz#71f0b580f87915695c286c3f0eb88cf23664d044"
-  integrity sha512-XG4rtxYDuJykuqhsOqokYIR84/C8pRihRtEpVskYLbIIKGwPNW2ySxdctuVzETZE+MbF/e7wmsnbNVpzM0rDug==
+eslint-plugin-jest@^24.3.6:
+  version "24.3.6"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-jest/-/eslint-plugin-jest-24.3.6.tgz#5f0ca019183c3188c5ad3af8e80b41de6c8e9173"
+  integrity sha512-WOVH4TIaBLIeCX576rLcOgjNXqP+jNlCiEmRgFTfQtJ52DpwnIQKAVGlGPAN7CZ33bW6eNfHD6s8ZbEUTQubJg==
   dependencies:
     "@typescript-eslint/experimental-utils" "^4.0.1"
 
@@ -843,20 +843,20 @@ eslint-plugin-react@^7.23.2:
     resolve "^2.0.0-next.3"
     string.prototype.matchall "^4.0.4"
 
-eslint-plugin-sonarjs@^0.6.0:
-  version "0.6.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-sonarjs/-/eslint-plugin-sonarjs-0.6.0.tgz#3ee3b04f1f9587ef02b255a5d2f96e500c4789bb"
-  integrity sha512-y+sXXWsYVW2kNEjmZI87laFspwC/hic7wyMjsPFoST8aQ2hESUVavkZjnTeVdHMOmlmcloKkyX/GJJetmfBY4Q==
+eslint-plugin-sonarjs@^0.7.0:
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-sonarjs/-/eslint-plugin-sonarjs-0.7.0.tgz#2dbad45e03a6a4de687756b659e88bf3f977383f"
+  integrity sha512-vi6zGkd5Eznc32AQlleWUOMrMeDiUih9wR7nPPfrDCyVRmwYNHIBRPZGv1EgXwELwaPghCSvoAoHoR7uSbBF/Q==
 
 eslint-plugin-sort-imports-es6-autofix@^0.6.0:
   version "0.6.0"
   resolved "https://registry.yarnpkg.com/eslint-plugin-sort-imports-es6-autofix/-/eslint-plugin-sort-imports-es6-autofix-0.6.0.tgz#b8cd8639d7a54cefce6b17898b102fd5ec31e52b"
   integrity sha512-2NVaBGF9NN+727Fyq+jJYihdIeegjXeUUrZED9Q8FVB8MsV3YQEyXG96GVnXqWt0pmn7xfCZOZf3uKnIhBrfeQ==
 
-eslint-plugin-testing-library@^4.0.2:
-  version "4.0.2"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-testing-library/-/eslint-plugin-testing-library-4.0.2.tgz#a11943d94c814687d24e52e5d7d1df4e48301dbb"
-  integrity sha512-XPaRxHrs5x+kO8RkXnBUQiEjrx2G+n1xrQ5zepwadYB0bMDEakViMsTY77vjRWQJl8o8LlpMx/1XWbviRwsMvQ==
+eslint-plugin-testing-library@^4.1.2:
+  version "4.1.2"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-testing-library/-/eslint-plugin-testing-library-4.1.2.tgz#f986bea35059118f3f37fb750b230b6a0fb0aa52"
+  integrity sha512-eJR1drH2yFcGM9As3C5Q17lyOolMPKalQA3l8pD61sAIt8+8w/KjHe7u9Sa4eYy7r76UikCoP9CAtVkGdGCZ/w==
   dependencies:
     "@typescript-eslint/experimental-utils" "^4.21.0"
 
