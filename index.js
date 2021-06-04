@@ -30,6 +30,17 @@ const tsBaseRules = {
         'error',
         { ignoreIIFE: true, ignoreVoid: true },
     ],
+    '@typescript-eslint/naming-convention': [
+        'error',
+        {
+            selector: 'interface',
+            format: ['PascalCase'],
+            custom: {
+                regex: '^I[A-Z]',
+                match: false,
+            },
+        },
+    ],
     // recommended configs from the typescript eslint repo - turn off conflicting import rules
     'import/named': 0,
     'import/namespace': 0,
