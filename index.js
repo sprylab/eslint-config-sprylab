@@ -3,6 +3,7 @@ const extendsList = [
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:@typescript-eslint/recommended-requiring-type-checking',
+    'plugin:eslint-comments/recommended',
     'plugin:import/errors',
     'plugin:import/warnings',
     'plugin:import/typescript',
@@ -59,6 +60,7 @@ const tsTestRules = {
     '@typescript-eslint/no-unsafe-return': 0,
     '@typescript-eslint/no-var-requires': 0,
     '@typescript-eslint/unbound-method': 0,
+    '@typescript-eslint/restrict-template-expressions': 0,
 }
 const jsBaseRules = {
     'new-cap': 0,
@@ -97,7 +99,7 @@ const jestConfig = (extensions) => ({
     ...(extensions.includes('js') ? jsConfig : tsConfig),
     files: [
         `**/*.{spec,test}.{${extensions}}`,
-        `**/{__tests__,__mocks__}/*.{${extensions}}`,
+        `**/{__tests__,__mocks__,tests,test}/*.{${extensions}}`,
         `**/jest.setup.{${extensions}}`,
     ],
     env: {
