@@ -8,6 +8,7 @@
     "native.js",
     "react.js"
   ],
+  "readme": "README.md",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sprylab/eslint-config-sprylab.git"
@@ -46,9 +47,9 @@
   },
   "peerDependencies": {
     "@babel/core": ">=7.14.3",
-    "eslint": ">=7.27.0",
+    "eslint": ">=7.28.0",
     "jest": ">=27.0.4",
-    "prettier": ">=2.3.0",
+    "prettier": ">=2.3.1",
     "typescript": ">=4.3.2"
   },
   "devDependencies": {

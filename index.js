@@ -20,6 +20,7 @@ const testBaseRules = {
     'no-console': 0,
     'sort-imports-es6-autofix/sort-imports-es6': 2,
     'jest/no-try-expect': 0,
+    'jest/no-conditional-expect': 0,
     'sonarjs/no-duplicate-string': 0,
     'sonarjs/no-identical-functions': 0,
 }

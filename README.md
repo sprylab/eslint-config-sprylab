@@ -100,6 +100,7 @@ plugins shared by all configs / overrides
 - `eslint-plugin-import`
 - `eslint-plugin-sonarjs`
 - `eslint-plugin-sort-imports-es6-autofix`
+- `eslint-plugin-comment`
 
 #### Testing
 
