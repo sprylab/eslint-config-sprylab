@@ -17,6 +17,7 @@ const extendsList = [
 const reactRules = {
     'react-hooks/exhaustive-deps': 0,
     'react/display-name': 1,
+    'react/prop-types': 0,
 }
 const testPlugins = [
     'plugin:testing-library/react',

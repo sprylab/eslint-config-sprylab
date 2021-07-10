@@ -43,6 +43,16 @@ const tsBaseRules = {
             },
         },
     ],
+    '@typescript-eslint/unbound-method': [
+        'error',
+        {
+            ignoreStatic: true,
+        },
+    ],
+    '@typescript-eslint/no-unused-vars': [
+        'warn',
+        { args: 'all', argsIgnorePattern: '^_' },
+    ],
     // recommended configs from the typescript eslint repo - turn off conflicting import rules
     'import/named': 0,
     'import/namespace': 0,
