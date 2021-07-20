@@ -1,6 +1,6 @@
 {
   "name": "@sprylab/eslint-config",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "description": "Eslint Configs used by Sprylab GmbH for typescript / react and react-native based projects",
   "main": "index.js",
   "files": [
@@ -30,8 +30,8 @@
   "dependencies": {
     "@babel/eslint-parser": "^7.14.7",
     "@babel/eslint-plugin": "^7.14.5",
-    "@typescript-eslint/eslint-plugin": "^4.28.2",
-    "@typescript-eslint/parser": "^4.28.2",
+    "@typescript-eslint/eslint-plugin": "^4.28.4",
+    "@typescript-eslint/parser": "^4.28.4",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-eslint-comments": "^3.2.0",
     "eslint-plugin-import": "^2.23.4",
@@ -43,19 +43,12 @@
     "eslint-plugin-react-native": "^3.11.0",
     "eslint-plugin-sonarjs": "^0.9.1",
     "eslint-plugin-sort-imports-es6-autofix": "^0.6.0",
-    "eslint-plugin-testing-library": "^4.9.0"
-  },
-  "peerDependencies": {
-    "@babel/core": ">=7.14.6",
-    "eslint": ">=7.30.0",
-    "jest": ">=27.0.6",
-    "prettier": ">=2.3.2",
-    "typescript": ">=4.3.5"
+    "eslint-plugin-testing-library": "^4.10.0"
   },
   "devDependencies": {
     "all-contributors-cli": "^6.20.0",
-    "eslint": "^7.29.0",
-    "prettier": "^2.3.1"
+    "eslint": "^7.31.0",
+    "prettier": "^2.3.2"
   },
   "scripts": {
     "contributors:add": "all-contributors add",
