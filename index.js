@@ -63,7 +63,10 @@ const tsBaseRules = {
     ],
     '@typescript-eslint/consistent-indexed-object-style': 2,
     '@typescript-eslint/no-non-null-assertion': 0,
-
+    '@typescript-eslint/no-unnecessary-type-arguments': 2,
+    '@typescript-eslint/no-unnecessary-condition': 2,
+    '@typescript-eslint/no-extra-non-null-assertion': 2,
+    '@typescript-eslint/no-unnecessary-boolean-literal-compare': 2,
     // recommended configs from the typescript eslint repo - turn off conflicting import rules
     'import/named': 0,
     'import/namespace': 0,
