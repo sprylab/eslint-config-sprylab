@@ -14,6 +14,8 @@ const extendsList = [
 const testingExtendsList = ['plugin:jest/recommended', 'plugin:jest/style']
 const baseRules = {
     'no-console': 1,
+    'curly': 2,
+    'eqeqeq': 2,
     'sort-imports-es6-autofix/sort-imports-es6': 2,
 }
 const testBaseRules = {
@@ -53,6 +55,15 @@ const tsBaseRules = {
         'warn',
         { args: 'all', argsIgnorePattern: '^_' },
     ],
+    '@typescript-eslint/array-type': [
+        'error',
+        {
+            default: 'array',
+        },
+    ],
+    '@typescript-eslint/consistent-indexed-object-style': 2,
+    '@typescript-eslint/no-non-null-assertion': 0,
+
     // recommended configs from the typescript eslint repo - turn off conflicting import rules
     'import/named': 0,
     'import/namespace': 0,
