@@ -17,6 +17,12 @@ const baseRules = {
     'curly': 2,
     'eqeqeq': 2,
     'sort-imports-es6-autofix/sort-imports-es6': 2,
+    'prefer-const': [
+        'error',
+        {
+            destructuring: 'all',
+        },
+    ],
 }
 const testBaseRules = {
     'no-console': 0,
