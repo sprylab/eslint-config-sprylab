@@ -23,6 +23,7 @@ const baseRules = {
             destructuring: 'all',
         },
     ],
+    'eslint-comments/disable-enable-pair': ['error', { allowWholeFile: true }],
 }
 const testBaseRules = {
     'no-console': 0,
@@ -31,11 +32,13 @@ const testBaseRules = {
     'jest/no-conditional-expect': 0,
     'sonarjs/no-duplicate-string': 0,
     'sonarjs/no-identical-functions': 0,
+    'sonarjs/cognitive-complexity': 0,
 }
 const tsBaseRules = {
     '@typescript-eslint/no-explicit-any': 0,
     '@typescript-eslint/prefer-optional-chain': 2,
     '@typescript-eslint/prefer-nullish-coalescing': 2,
+    '@typescript-eslint/restrict-template-expressions': 0,
     '@typescript-eslint/no-floating-promises': [
         'error',
         { ignoreIIFE: true, ignoreVoid: true },
