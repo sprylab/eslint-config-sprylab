@@ -43,7 +43,7 @@
     "eslint-plugin-react-native": "^3.11.0",
     "eslint-plugin-sonarjs": "^0.10.0",
     "eslint-plugin-sort-imports-es6-autofix": "^0.6.0",
-    "eslint-plugin-testing-library": "^4.12.4"
+    "eslint-plugin-testing-library": "^5.0.0"
   },
   "devDependencies": {
     "all-contributors-cli": "^6.20.0",
