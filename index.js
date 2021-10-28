@@ -88,13 +88,14 @@ const tsTestRules = {
     '@typescript-eslint/no-floating-promises': 0,
     '@typescript-eslint/no-implied-eval': 0,
     '@typescript-eslint/no-misused-promises': 0,
+    '@typescript-eslint/no-unsafe-argument': 0,
     '@typescript-eslint/no-unsafe-assignment': 0,
     '@typescript-eslint/no-unsafe-call': 0,
     '@typescript-eslint/no-unsafe-member-access': 0,
     '@typescript-eslint/no-unsafe-return': 0,
     '@typescript-eslint/no-var-requires': 0,
-    '@typescript-eslint/unbound-method': 0,
     '@typescript-eslint/restrict-template-expressions': 0,
+    '@typescript-eslint/unbound-method': 0,
 }
 const jsBaseRules = {
     'new-cap': 0,
